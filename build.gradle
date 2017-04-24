@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+group = 'se.gustavkarlsson.rocketchat'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    compile 'com.github.gustavkarlsson:rocketchat-gson-models:-SNAPSHOT'
+    compile 'com.sparkjava:spark-core:2.5.5'
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.assertj:assertj-core:3.6.2'
+    testCompile 'org.mockito:mockito-core:2.7.19'
+    testCompile 'nl.jqno.equalsverifier:equalsverifier:2.2.1'
+    testCompile 'org.glassfish.jersey.core:jersey-client:2.25.1'
+    testCompile 'org.skyscreamer:jsonassert:1.5.0'
+}
+
