@@ -10,7 +10,7 @@ Point your favorite build tool to [jitpack](https://jitpack.io/#gustavkarlsson/r
 ## Usage
 This framework is built on the very simple [Spark](http://sparkjava.com/) web framework.
 
-To create your own server, just extend `RocketChatMessageRoute` and implement the `handle` method.
+To create your a server, just extend `RocketChatMessageRoute` and implement the `handle` method.
 Then fire up spark with your route and you're good to go!
 
 ## Example app

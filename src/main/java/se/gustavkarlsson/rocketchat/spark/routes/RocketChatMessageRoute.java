@@ -4,13 +4,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import se.gustavkarlsson.rocketchat.models.from_rocket_chat.FromRocketChatMessage;
 import se.gustavkarlsson.rocketchat.models.to_rocket_chat.ToRocketChatMessage;
 import spark.Request;
 import spark.Response;
 import spark.Route;
-
-import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * A specialized route for handling Rocket.Chat messages. Does all the json marshalling/unmarshalling for you, as well
@@ -23,7 +22,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 public abstract class RocketChatMessageRoute implements Route {
 	private static final String ROCKETCHAT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSX";
 
-	private static final Logger logger = getLogger(RocketChatMessageRoute.class);
+	private static final Logger logger = LoggerFactory.getLogger(RocketChatMessageRoute.class);
 	private static final Gson gson = new GsonBuilder().setDateFormat(ROCKETCHAT_DATE_FORMAT).create();
 
 	@Override
@@ -56,5 +55,6 @@ public abstract class RocketChatMessageRoute implements Route {
 	 * @throws Exception implementation can choose to throw exception
 	 * @see Route#handle(spark.Request, spark.Response)
 	 */
+	@SuppressWarnings("WeakerAccess")
 	protected abstract ToRocketChatMessage handle(Request request, Response response, FromRocketChatMessage fromRocketChatMessage) throws Exception;
 }
