@@ -3,6 +3,7 @@ package se.gustavkarlsson.rocketchat.spark.routes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import org.eclipse.jetty.http.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import se.gustavkarlsson.rocketchat.models.from_rocket_chat.FromRocketChatMessage;
@@ -38,7 +39,8 @@ public abstract class RocketChatMessageRoute implements Route {
 		}
 		ToRocketChatMessage responseMessage = handle(request, response, fromRocketChatMessage);
 		if (responseMessage == null) {
-			return null;
+			response.status(HttpStatus.NO_CONTENT_204);
+			return "";
 		}
 		response.type("application/json");
 		return gson.toJson(responseMessage);
