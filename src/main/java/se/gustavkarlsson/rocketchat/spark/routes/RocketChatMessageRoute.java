@@ -39,7 +39,7 @@ public abstract class RocketChatMessageRoute implements Route {
 		}
 		ToRocketChatMessage responseMessage = handle(request, response, fromRocketChatMessage);
 		if (responseMessage == null) {
-			response.status(HttpStatus.NO_CONTENT_204);
+			response.status(HttpStatus.OK_200);
 			return "";
 		}
 		response.type("application/json");
