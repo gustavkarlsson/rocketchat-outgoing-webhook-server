@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.gustavkarlsson:rocketchat-gson-models:2.0.0'
+    compile 'com.github.gustavkarlsson:rocketchat-gson-models:3.0.0'
     compile 'com.sparkjava:spark-core:2.6.0'
     compile 'org.slf4j:slf4j-api:1.7.25'
 }
